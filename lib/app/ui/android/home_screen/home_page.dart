@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_graduation_thesis/app/ui/android/overview_screen/overview_screen.dart';
 import 'package:flutter_graduation_thesis/app/ui/android/transaction_screen/transaction_screen.dart';
 import 'package:flutter_graduation_thesis/app/ui/android/wallet_screen/wallet_screen.dart';
+import 'package:flutter_graduation_thesis/app/ui/theme/app_colors.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,8 +20,8 @@ class HomePage extends StatelessWidget {
   static int accountIndex = 3;
 
   final List<Widget> _listScreens = [
+    OverViewScreen(),
     const TransactionScreen(),
-    const WalletScreen(),
     Container(),
     Container(),
   ];
@@ -35,7 +37,10 @@ class HomePage extends StatelessWidget {
       ),
       bottomNavigationBar: _buildBottomTabBar(),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+        ),
+        backgroundColor: ColorsTheme.mainGreen,
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -54,7 +59,7 @@ class HomePage extends StatelessWidget {
             // Home
             _buildBottomBarItem(key, 'Tổng quan', () {
               selectedTabIndex.value = homeIndex;
-              // Get.to(() => const TransactionScreen(),
+              // Get.to(() => const OverViewScreen(),
               //     transition: Transition.cupertino);
             }, selectedTabIndex.value == homeIndex ? Colors.black : Colors.grey,
                 listIcons[0]),

@@ -29,8 +29,4 @@ class HomeController extends GetxController {
   excluir(id) {}
   //dismissible
   editar() {}
-  details(post) {
-    this.post = post;
-    Get.toNamed(Routes.DETAILS);
-  }
 }
